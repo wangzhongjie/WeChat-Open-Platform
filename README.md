@@ -1,6 +1,6 @@
 
 - WeChat Open Platform API developing By Nodejs+Thinkjs+Mysql
-- 用Nodejs、Thinkjs开发微信开放平台的公众号、小程序开发，包括授权相关、自定义菜单、素材管理、消息模板、客服等功能
+- 用Nodejs、Thinkjs开发微信开放平台的公众号、小程序开发，包括授权相关、自定义菜单、素材管理、消息模板、客服等功能0
 
 
 
