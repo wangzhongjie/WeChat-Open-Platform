@@ -46,6 +46,37 @@
 
 # 一些数据来回传输解密后的数据
 
+### 票据和令牌等
+平台票据 component_verify_ticket
+```
+ {
+    AppId: "wx304925ea25bcbe",
+    CreateTime: "1562424829"
+    InfoType: "component_verify_ticket",
+    ComponentVerifyTicket: 'ticket@@@lEHjsBEi_TPDey0IZxw4Zbb7JRYLOtEf9ksvDpSwzkwog3R6xEpdaK0yIee7JOyOXM0V7cp0dpM58GKmb8FSKA'
+} 
+```
+
+平台令牌 component_access_token
+```
+{
+    component_access_token: 'M5CvflZyL5fkV29gU6MhQIoNsvzPEGBjYgmgA7yxnI_l8sblqm0QUULiMHoWY3gXPOnenZs3-42x_EenE1DEAg2F1K3X_fOI44h_eqxrV_7b0K7yc3pEGf_qTZl8HOlyCTSiAHAVML',
+    expires_in: 7200,
+    componentAppId: 'componentAppId'
+} 
+```
+
+公众号AccessToken authorizer_access_token
+```
+{
+    AppId: 'wx304925fa25bcbe',
+    authorizer_appid: 'wxc739251b3c6c41',
+    authorizer_access_token: 'j7mR_dvcCAmUq5Iw-MuzE4sBT0unN-ukg7LR8EqZEQ1wZ7oyw0rs1Idk40d7uxriOubE3795JiFa3e5jDGdofRpTemXd2HLLV6p_i_Uwy7m2Rp-qv1k1ld-T9iCCDcVeQONdALDFDC',
+    authorizer_refresh_token: 'refreshtoken@@@6Esz0GgFsth_vRPtqjQd_aIQcCBcJ4iuzQFf3akLwgg',
+    expires_in: 7200
+}
+```
+
 ### 自定义菜单公众号和用户交互时来回的格式
 view 微信给我们
 ```
