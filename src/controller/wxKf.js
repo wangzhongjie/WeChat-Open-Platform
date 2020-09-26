@@ -13,7 +13,7 @@ module.exports = class extends Base {
 
     /**
      * 客服接口-发消息
-     */
+     
     async sendMsgKfAction() {
         const { authorizer_appid } = this.post()
         const accessToken = await getAccessToken(false, authorizer_appid)
@@ -43,7 +43,7 @@ module.exports = class extends Base {
             this.body = backData
         }
     }
-
+    */
 
     //客服接口-发消息
     async sendMsgKf(access_token, body) {

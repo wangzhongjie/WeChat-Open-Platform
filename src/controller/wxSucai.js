@@ -49,12 +49,6 @@ module.exports = class extends Base {
 
 
     /**
-     * TODO 新增临时素材
-     */
-    async mediaUploadAction() {}
-
-
-    /**
      * 获取临时素材
      * 
      * 正确情况下的返回HTTP头如下：
@@ -85,9 +79,9 @@ module.exports = class extends Base {
 
         let url = think.config('WECHATapi').prefix + think.config('WECHATapi').media_get
         let query = {
-          access_token: accessToken.authorizer_access_token,
-          authorizer_appid,
-          media_id
+            access_token: accessToken.authorizer_access_token,
+            authorizer_appid,
+            media_id
         }
         url += '?' + querystring.stringify(query)
 
@@ -100,24 +94,6 @@ module.exports = class extends Base {
             this.success(backData)
         }
     }
-
-
-    /**
-     * TODO 新增永久图文素材
-     */
-    async materialAddNewsAction() {}
-
-
-    /**
-     * TODO 上传图文消息内的图片获取URL
-     */
-    async mediaUpoladimgAction() {}
-
-
-    /**
-     * TODO 新增其他类型永久素材
-     */
-    async addMaterialAction() {}
 
 
     /**
@@ -175,18 +151,6 @@ module.exports = class extends Base {
             this.success(backData)
         }
     }
-
-
-    /**
-     * TODO 删除永久素材
-     */
-    async delMaterialAction() { }
-
-
-    /**
-     * TODO 修改永久图文素材
-     */
-    async mertrialUpdateNewsAction() { }
 
 
     /**
@@ -255,4 +219,44 @@ module.exports = class extends Base {
             this.success(backData)
         }
     }
+
+
+
+    /**
+     * TODO 新增临时素材
+     */
+    async mediaUploadAction() {}
+
+
+    /**
+     * TODO 新增永久图文素材
+     */
+    async materialAddNewsAction() {}
+
+
+    /**
+     * TODO 上传图文消息内的图片获取URL
+     */
+    async mediaUpoladimgAction() {}
+
+
+    /**
+     * TODO 新增其他类型永久素材
+     */
+    async addMaterialAction() {}
+
+
+
+    /**
+     * TODO 删除永久素材
+     */
+    async delMaterialAction() {}
+
+
+    /**
+     * TODO 修改永久图文素材
+     */
+    async mertrialUpdateNewsAction() {}
+
+
 }

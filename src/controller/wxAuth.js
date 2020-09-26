@@ -624,4 +624,76 @@ module.exports = class extends Base {
             console.log(err)
         }
     }
+
+
+    /**
+     * 第三方平台全网发布,消息与事件接收URL
+     * @Author: flytiger
+     */
+    async appidAction() {
+        // this.body='' //第三方平台方需在 5 秒内返回空串表明暂时不回复
+        //微信带密文的请求
+        let wx_backdata = this.post()
+        let url = this.ctx.url
+        const reg = /wx[0-9a-z]{16}/
+        url = reg.exec(url)
+        let authorizer_appid = url.length > 0 ? url[0] : ''
+
+        //是否微信postdata异常
+        if (!wx_backdata.hasOwnProperty('xml')) {
+            throw new Error('微信postdata异常')
+        }
+        let wx_backdata2 = wx_backdata.xml.Encrypt[0]
+
+        //解密微信传递给回调接口的密文
+        const encodingAESKey = think.config('WX').key
+        const xml = aes.decode(wx_backdata2, encodingAESKey)
+
+        //解析xml->json
+        parseString(xml, (err, ret) => {
+            if (err) console.error('解析xml错误')
+            this.handlerMsgtype(authorizer_appid, ret.xml)
+        })
+    }
+
+
+        /**
+     * 消息去重
+     * 将普通消息的MsgId 或事件消息的FromUserName + CreateTime 存入缓存作为凭据
+     * 新获取的消息和缓存里的凭据对比
+     * TODO，数据量大了，要存入中控redis服务器
+     * return 重复true
+     */
+    async isRepeatMsg(json) {
+        let cacheMsg = null,
+            flag = true
+
+        let key = json.hasOwnProperty('MsgId') ? json.MsgId[0] + '' : json.FromUserName[0] + '' + json.CreateTime[0]
+        cacheMsg = await this.cache(key) //缓存的key值为变量
+        console.log('cacheMsg', cacheMsg)
+        if (cacheMsg) { //重复 不操作
+            return this.body = 'success'
+        }
+        await this.cache(key, 1, { timeout: 15 * 1000 }) //设置缓存超时时间
+        cacheMsg = await this.cache(key)
+    }
+
+    /**
+     * 去除xml中的空格 换行 TAB
+     * @param {string} xml 
+     */
+    deleteXMLSpace(xml) {
+        let sb = { str: "", toString: function() { return this.str; } }; {
+            let arr = xml.split("\n");
+            let _loop_1 = function(idx) {
+                let s = arr[idx]; {
+                    (function(sb) { sb.str = sb.str.concat(s.trim()); return sb; })(sb);
+                }
+            };
+            for (let idx = 0; idx < arr.length; idx++) {
+                _loop_1(idx);
+            }
+        }
+        return sb.str;
+    }
 }
