@@ -46,7 +46,7 @@
 
 # 一些数据来回传输解密后的数据
 
-### 自定义菜单公众号和用户交互时来回的数据
+### 自定义菜单公众号和用户交互时来回的格式
 view 微信给我们
 ```
 {
@@ -213,6 +213,137 @@ voice ————————————————————————�
     }, 
     "mode": "voice"
 }
+```
+
+### 消息管理
+- 接收到的消息类型
+
+文本
+```
+{ ToUserName: [ 'gh_2abdab15a' ],
+FromUserName: [ 'occzawmBdzGYfUnzcS6hrI' ],
+CreateTime: [ '1584606318' ],
+MsgType: [ 'text' ],
+Content: [ '阳光' ],
+MsgId: [ '2268610850058720' ] }
+```
+
+图片
+```
+{ ToUserName: [ 'gh_2abdaab15a' ],
+FromUserName: [ 'occzawmdJUBdzGYfUnzcS6hrI' ],
+CreateTime: [ '1584606363' ],
+MsgType: [ 'image' ],
+PicUrl:
+ [ 'http://mmbiz.qpic.cn/mmbiz_jpg/fMMv15veLxtff7aQbCy8wPl6jLjiceeko5Srgl54PQH3zGP3jQSXBWfnPiajezUN3JLibJib7ibf18uv18HKPoBAA/0' ],
+MsgId: [ '226861085232416' ],
+MediaId:
+ [ 'YcrjRzK8Mp24FCCkAyG0S3WufgLgsBHzfCCjFaRfCycFCrcV0DUJENqzr6xhx-' ] }
+```
+
+地址
+```
+{ ToUserName: [ 'gh_2abdaeb15a' ],
+FromUserName: [ 'occzawmdJBdzGYfUnzcS6hrI' ],
+CreateTime: [ '1584606233' ],
+MsgType: [ 'location' ],
+Location_X: [ '23.151228' ],
+Location_Y: [ '113.324867' ],
+Scale: [ '10' ],
+Label: [ '天河区东站路1号' ],
+MsgId: [ '2268610362373525' ] }
+```
+
+链接
+```
+{ ToUserName: [ 'gh_2abdaeb15a' ],
+FromUserName: [ 'occzynDiYUuywXo0Slc70NOo' ],
+CreateTime: [ '15846071' ],
+MsgType: [ 'link' ],
+Title: [ '史玉柱：怎么利用人性弱点赚钱？一次又一次赚钱' ],
+Description: [ '他赢了，而且比跌倒之前赢得更大' ],
+Url:
+ [ 'http://mp.weixin.qq.com/s?__biz=MzA3ODMwQ5Ng==&mid=2650710640&idx=4&sn=261c212f3cc041e78e6fa7af848f1b2&chksm=874ec3c7b034ad1070bf765d1fafd830c047daaa0078b204d762552b0deb235e36e11d&mpshare=1&scene=24&srcid=0616QRV0KChXPWxM0j3JOoK#rd' ],
+MsgId: [ '22686118302317' ] }
+```
+
+语音
+```
+{ ToUserName: [ 'gh_2abdaee15a' ],
+FromUserName: [ 'occzawvyynYUuywXo0Slc70NOo' ],
+CreateTime: [ '1584607488' ],
+MsgType: [ 'voice' ],
+MediaId:
+ [ 'r_7duZMmyaThlNYF1Au6FTc-ikN1cbmsfC0DSbdYkBQwlOj-Nj2WylaDZWUK-u' ],
+Format: [ 'amr' ],
+MsgId: [ '680583733756712448' ],
+Recognition: [ '' ] }
+```
+
+视频
+```
+{ ToUserName: [ 'gh_2abdeb15a' ],
+FromUserName: [ 'occzawvyynUuywXo0Slc70NOo' ],
+CreateTime: [ '1584606666' ],
+MsgType: [ 'video' ],
+MediaId:
+ [ 'YrQKVINqy5ksheZr6H5AT--GQ4H08HPtnr8htpScTXwl6qThy7mwD0PELj7ZU' ],
+ThumbMediaId:
+ [ 'gR36JWCVE3-NzoWnWOp6yqCwou3G5EIFVyd--AGAV_GG1eReTIWNU7jetzZZh' ],
+MsgId: [ '22686113883680237' ] }
+```
+
+关注
+```
+{ ToUserName: [ 'gh_2abdab15a' ],
+FromUserName: [ 'occzawvyynYUuywXo0Slc70NOo' ],
+CreateTime: [ '1584607748' ],
+MsgType: [ 'event' ],
+Event: [ 'unsubscribe' ],
+EventKey: [ '' ] }
+```
+
+取消关注
+```
+{ ToUserName: [ 'gh_2abeab15a' ],
+FromUserName: [ 'occzawvyyYUuywXo0Slc70NOo' ],
+CreateTime: [ '1584607787' ],
+MsgType: [ 'event' ],
+Event: [ 'subscribe' ],
+EventKey: [ '' ] }
+```
+
+点击
+```
+{ ToUserName: [ 'gh_2abeab15a' ],
+FromUserName: [ 'occzawvyynYUuywXo0Slc70NOo' ],
+CreateTime: [ '1584607520' ],
+MsgType: [ 'event' ],
+Event: [ 'CLICK' ],
+EventKey: [ 'V1001_SHOUXIAN' ] }
+```
+
+跳转
+```
+{ ToUserName: [ 'gh_2abdab15a' ],
+FromUserName: [ 'occzawvyyYUuywXo0Slc70NOo' ],
+CreateTime: [ '1584607543' ],
+MsgType: [ 'event' ],
+Event: [ 'VIEW' ],
+EventKey:
+ [ 'https://aaaaa' ],
+MenuId: [ '431877735' ] }
+```
+
+
+未知类型 名片 
+```
+{ ToUserName: [ 'gh_2abeab15a' ],
+FromUserName: [ 'occzawvyiYUuywXo0Slc70NOo' ],
+CreateTime: [ '1584606786' ],
+MsgType: [ 'text' ],
+Content: [ '【收到不支持的消息类型，暂无法显示】' ],
+MsgId: [ '226861124078718' ] }
 ```
 
 
